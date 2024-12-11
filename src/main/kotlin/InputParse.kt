@@ -7,11 +7,7 @@ import java.io.File
         filename    - text file to parse
         parsingRule - function, which takes file and produce result
     Function to parse input from file.
-    Input file example:
-        1 3
-        4 2
-        5 3
-        6 1
+
     This should be parsed according to parsingRule function.
     Returns parsed input in expected form, wrapped in Result.
  */

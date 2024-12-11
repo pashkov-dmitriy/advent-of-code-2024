@@ -1,5 +1,7 @@
 package ru.myproj
 
+import day2
+
 val solutions = listOf(::day1, ::day2)
 
 fun main() {
@@ -9,7 +11,7 @@ fun main() {
         val day = i + 1
 
         println("---------- Day $day ----------")
-        day1("C:\\AoC2024\\DAY$day.txt").onFailure { ex ->
+        solutions[i]("C:\\AoC2024\\DAY$day.txt").onFailure { ex ->
             println("Execution failed")
             println(ex)
         }
