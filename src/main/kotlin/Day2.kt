@@ -41,6 +41,9 @@ fun day2(filename: String): Result<Int> {
         }
 }
 
+/*
+    Classes to indicate sequence type
+ */
 private sealed class SequenceType {
     object Increasing : SequenceType()
     object Decreasing : SequenceType()
@@ -49,15 +52,19 @@ private sealed class SequenceType {
 
 /*
     Function to check if order is safe according to AoC 2024 Day 2 rules.
+    Takes one report and optional damper availability as parameters.
+    Return true if the report is safe, otherwise false
  */
 private fun checkDataIsSafe(data: List<Int>, damperAvailable: Boolean = false): Boolean {
 
+    // Calculates current sequence type by two values
     fun checkDecOrInc(left: Int, right: Int) = when (left - right) {
         in -3..-1 -> SequenceType.Decreasing
         in 1..3 -> SequenceType.Increasing
         else -> SequenceType.Unsafe
     }
 
+    // Main logic of the function
     tailrec fun checkDataIsSafeInternal(
         data: List<Int>,
         isDec: Boolean,
@@ -95,6 +102,7 @@ private fun checkDataIsSafe(data: List<Int>, damperAvailable: Boolean = false): 
     return checkDataIsSafeInternal(data, false, false, damperAvailable)
 }
 
+// Day 2 Second half solution
 fun day2SecondHalf(filename: String): Result<Int> {
     return parseInput(filename) { file ->
         parsingRule(file)
