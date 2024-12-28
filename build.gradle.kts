@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
@@ -18,4 +19,5 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(15)
+    jvmToolchain(8)
 }
